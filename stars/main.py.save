@@ -1,0 +1,15 @@
+import numpy as np
+from skimage.measure import label
+from skimage.morphology import opening
+
+image = np.load('./stars.npy')
+without_stars = opening(image,np.ones((2,2)))
+
+print(np.max(label(image)) - np.max(label(without_stars)))import numpy as np
+from skimage.measure import label
+from skimage.morphology import erosion
+
+image = np.load('./stars.npy')
+without_stars = erosion(image,np.ones((2,2)))
+
+print(np.max(label(image)) - np.max(label(without_stars)))
